@@ -1,0 +1,25 @@
+{
+  "name": "telegram-bot-template",
+  "version": "1.0.0",
+  "description": "Template for creating Telegram bots",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitaKemarskiy/telegram-bot-template.git"
+  },
+  "author": "Kemarskiy Nikita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikitaKemarskiy/telegram-bot-template/issues"
+  },
+  "homepage": "https://github.com/NikitaKemarskiy/telegram-bot-template#readme",
+  "dependencies": {
+    "mongoose": "^5.6.11",
+    "simple-node-logger": "^18.12.23",
+    "telegraf": "^3.32.0",
+    "telegraf-session-mongodb": "^1.1.2"
+  }
+}
