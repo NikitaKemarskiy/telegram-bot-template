@@ -11,7 +11,7 @@ const Scenes = require(path.join(__dirname, 'init', 'scenes'));
 // Main function
 async function main() {
 	await DB.connect(); // Connect database
-	const bot = await Bot.configure(); // Configure messenger bot	
+	const bot = await Bot.configure(); // Configure messenger bot
 	Middlewares.init(bot); // Init middlewares
 	Scenes.init(bot); // Init scenes
 	Handlers.init(bot); // Init handlers

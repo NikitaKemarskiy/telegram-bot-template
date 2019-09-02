@@ -40,15 +40,10 @@ addAdmins.on('message', async (ctx) => {
 	return ctx.scene.leave();
 });
 
-addAdmins.on('callback_query', async (ctx) => {
-	switch (ctx.callbackQuery.data) {
-		case 'back': {
-			await ctx.scene.leave();
-			await AdminMessage.send(ctx);
-			break;
-		}
-	}
-})
+addAdmins.action('back', async (ctx) => {
+	await ctx.scene.leave();
+	await AdminMessage.send(ctx);
+});
 
 // Exports
 module.exports = addAdmins;

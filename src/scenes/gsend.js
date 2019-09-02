@@ -38,14 +38,9 @@ gsend.on('message', async (ctx) => {
 	await ctx.scene.leave();
 });
 
-gsend.on('callback_query', async (ctx) => {
-	switch (ctx.callbackQuery.data) {
-		case 'back': {
-			await ctx.scene.leave();
-			await AdminMessage.send(ctx);
-			break;
-		}
-	}
+gsend.on('action', async (ctx) => {
+	await ctx.scene.leave();
+	await AdminMessage.send(ctx);
 });
 
 // Exports

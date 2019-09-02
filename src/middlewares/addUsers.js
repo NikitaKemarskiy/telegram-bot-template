@@ -19,14 +19,16 @@ async function addUsers(ctx, next) {
 	const isAdmin = [300922262, 461738219].includes(chatId);
 
 	const insertDoc = {
-		chatId,
 		name,
 		isAdmin
 	};
 
 	if (username) { insertDoc.username = username; }
 
-	await User.findOneAndUpdate({ chatId }, insertDoc, { upsert: true, new: true });
+	await User.findOneAndUpdate({ chatId }, insertDoc, { upsert: true });
 
 	await next();
 }
+
+// Exports
+module.exports = addUsers;

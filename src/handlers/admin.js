@@ -48,7 +48,7 @@ function init(bot) {
 	// Справка админа 💡 handler
 	bot.hears('Справка админа 💡', async (ctx) => {
 		if (await isAdmin(ctx.from.id)) {
-			await AdminsHelpMessage.send(ctx);
+			await AdminHelpMessage.send(ctx);
 		}
 	});
 }

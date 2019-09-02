@@ -13,12 +13,13 @@ async function configure() {
 	const token = config.token;
 	const bot = new Telegraf(token);
 	
-	try {
-		await bot.launch();
-	} catch (err) {
-		logger.fatal(`XXX Возникла ошибка инициализации бота! Текст ошибки: ${err.message}`);
-		process.exit(1);
-	}
+	await bot.launch();
+	// try {
+	// 	await bot.launch();
+	// } catch (err) {
+	// 	logger.fatal(`XXX Возникла ошибка инициализации бота! Текст ошибки: ${err.message}`);
+	// 	process.exit(1);
+	// }
 	
 	logger.trace('>>> Бот сконфигурирован');
 	return bot;

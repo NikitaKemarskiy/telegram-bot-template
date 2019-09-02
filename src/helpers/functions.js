@@ -38,7 +38,7 @@ async function sendGlobal(ctx) {
 // Add an admin
 async function addAdmin(chatId) {
 	try {
-		await User.findOneAndUpdate({ chatId }, { isAdmin: true }); // Make user an admin
+		await User.findOneAndUpdate({ chatId }, { isAdmin: true }, { upsert: true }); // Make user an admin
 	} catch (err) {
 		throw new Error(`Ошибка при добавлении админа: ${err.message}`);
 	}
@@ -47,7 +47,7 @@ async function addAdmin(chatId) {
 // Dismiss an admin
 async function dismissAdmin(chatId) {
 	try {
-		await User.findOneAndUpdate({ chatId }, { isAdmin: false }); // Dismiss admin
+		await User.findOneAndUpdate({ chatId }, { isAdmin: false }, { upsert: true }); // Dismiss admin
 	} catch (err) {
 		throw new Error(`Ошибка при отстранении админа: ${err.message}`);
 	}
@@ -58,3 +58,14 @@ async function getAllUsersCount() {
   const users = await User.find({});
   return users.length;
 }
+
+// Exports
+module.exports = {
+	getUsers,
+	getAdmins,
+	isAdmin,
+	sendGlobal,
+	addAdmin,
+	dismissAdmin,
+	getAllUsersCount
+};

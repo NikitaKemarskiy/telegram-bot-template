@@ -12,7 +12,15 @@ const config = require(path.join(__dirname, '..', '..', 'config', 'config'));
 async function connect() {
 	const url = config.dbUrl;
 	try {
-		await mongoose.connect(url, { useNewUrlParser: true, keepAlive: true, useCreateIndex: true })			
+		// Mongoose options
+		const options = {
+			useNewUrlParser: true,
+			keepAlive: true,
+			useCreateIndex: true,
+			useFindAndModify: false
+		};
+		// Database connect
+		await mongoose.connect(url, options);
 		logger.trace('>>> База данных подключена');
 	} catch (err) {
 		logger.fatal(`XXX Возникла ошибка при подключении к MongoDB! Текст ошибки: ${err.message}`);

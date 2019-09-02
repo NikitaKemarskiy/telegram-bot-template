@@ -31,3 +31,6 @@ async function chatLogging(ctx, next) {
 
 	await next();
 }
+
+// Exports
+module.exports = chatLogging;
